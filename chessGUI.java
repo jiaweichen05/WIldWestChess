@@ -4,6 +4,7 @@ import javax.swing.border.EmptyBorder;
 import javax.swing.border.LineBorder;
 import java.awt.event.*;
 import java.util.EventListener;
+import java.lang.Object;
 
 public class chessGUI extends JFrame implements EventListener{
     private final JPanel gui = new JPanel(new BorderLayout(3,3));
@@ -61,5 +62,7 @@ public class chessGUI extends JFrame implements EventListener{
                 chessBoard.add(chessBoardSquares[row][col]);
             }
         }
+        Icon blackBishop = new ImageIcon("blackBishop.PNG");
+        chessBoardSquares[0][0].setIcon(blackBishop);
     }
 }
