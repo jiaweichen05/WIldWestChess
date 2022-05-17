@@ -32,18 +32,26 @@ public class chessGUI extends JFrame implements EventListener{
         tools.addSeparator();
         tools.add(message);
 
-        chessBoard = new JPanel(new GridLayout(0,8));
+        chessBoard = new JPanel(new GridLayout(8,8));
         chessBoard.setBorder(new LineBorder(Color.BLACK));
         gui.add(chessBoard);
 
         Insets buttonMargins = new Insets(0,0,0,0);
+        boolean black = false;
         for (int row = 0; row < chessBoardSquares.length; row++)
         {
             for (int col = 0; col < chessBoardSquares[0].length; col++)
             {
                 chessBoardSquares[row][col] = new JButton();
                 chessBoardSquares[row][col].setMargin(buttonMargins);
-                chessBoardSquares[row][col].setBackground(Color.BLACK);
+                if (black){
+                    chessBoardSquares[row][col].setBackground(Color.BLACK);
+                    black = false;
+                }
+                else{
+                    chessBoardSquares[row][col].setBackground(Color.WHITE);
+                    black = true;
+                }
                 chessBoard.add(chessBoardSquares[row][col]);
             }
         }
