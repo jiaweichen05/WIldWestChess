@@ -16,7 +16,7 @@ public class chessGUI extends JFrame implements EventListener{
         initializeGUI();
         add(gui);
         setDefaultCloseOperation( JFrame.EXIT_ON_CLOSE );
-        setSize(350,300);
+        setSize(1000,1000);
         setLocationRelativeTo(null);
         setVisible(true);
 
@@ -32,7 +32,7 @@ public class chessGUI extends JFrame implements EventListener{
         tools.addSeparator();
         tools.add(message);
 
-        chessBoard = new JPanel(new GridLayout(0,9));
+        chessBoard = new JPanel(new GridLayout(0,8));
         chessBoard.setBorder(new LineBorder(Color.BLACK));
         gui.add(chessBoard);
 
@@ -41,8 +41,10 @@ public class chessGUI extends JFrame implements EventListener{
         {
             for (int col = 0; col < chessBoardSquares[0].length; col++)
             {
-                JButton b = new JButton();
-                b.setMargin(buttonMargins);
+                chessBoardSquares[row][col] = new JButton();
+                chessBoardSquares[row][col].setMargin(buttonMargins);
+                chessBoardSquares[row][col].setBackground(Color.BLACK);
+                chessBoard.add(chessBoardSquares[row][col]);
             }
         }
     }
