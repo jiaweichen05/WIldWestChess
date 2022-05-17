@@ -14,10 +14,12 @@ public class chessGUI extends JFrame implements EventListener{
     public chessGUI(){
         setTitle("Wild West Chess");
         initializeGUI();
+        add(gui);
         setDefaultCloseOperation( JFrame.EXIT_ON_CLOSE );
         setSize(350,300);
         setLocationRelativeTo(null);
         setVisible(true);
+
     }
 
     public void initializeGUI(){
