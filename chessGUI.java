@@ -37,9 +37,15 @@ public class chessGUI extends JFrame implements EventListener{
         gui.add(chessBoard);
 
         Insets buttonMargins = new Insets(0,0,0,0);
-        boolean black = false;
         for (int row = 0; row < chessBoardSquares.length; row++)
         {
+            boolean black;
+            if (row%2 == 0){
+                black = false;
+            }
+            else{
+                black = true;
+            }
             for (int col = 0; col < chessBoardSquares[0].length; col++)
             {
                 chessBoardSquares[row][col] = new JButton();
