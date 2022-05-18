@@ -39,6 +39,7 @@ public class chessGUI extends JFrame implements EventListener{
         chessBoard.setBorder(new LineBorder(Color.BLACK));
         gui.add(chessBoard);
         ImageIcon icon = new ImageIcon("images/blackBishop.PNG");
+        Image
 
         Insets buttonMargins = new Insets(0,0,0,0);
         for (int row = 0; row < chessBoardSquares.length; row++)
@@ -54,21 +55,21 @@ public class chessGUI extends JFrame implements EventListener{
             {
                 chessBoardSquares[row][col] = new JButton(icon);
                 chessBoardSquares[row][col].setMargin(buttonMargins);
-//                ImageIcon icon = new ImageIcon(
-//                        new BufferedImage(64, 64, BufferedImage.TYPE_INT_ARGB));
+
                 chessBoardSquares[row][col].setIcon(icon);
 
-//                if (black){
-//                    chessBoardSquares[row][col].setBackground(Color.BLACK);
-//                    black = false;
-//                }
-//                else{
-//                    chessBoardSquares[row][col].setBackground(Color.WHITE);
-//                    black = true;
-//                }
+                if (black){
+                    chessBoardSquares[row][col].setBackground(Color.BLACK);
+                    black = false;
+                }
+                else{
+                    chessBoardSquares[row][col].setBackground(Color.WHITE);
+                    black = true;
+                }
                 chessBoard.add(chessBoardSquares[row][col]);
             }
         }
+
     }
 //    public void addMouseListener(){
 //        for (int row = 0; row< chessBoardSquares.length;row++){
