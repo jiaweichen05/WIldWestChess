@@ -7,9 +7,10 @@ import java.awt.image.BufferedImage;
 import java.util.EventListener;
 import java.lang.Object;
 
-public class chessGUI extends JFrame implements EventListener{
+public class chessGUI extends JFrame implements MouseListener{
     private final JPanel gui = new JPanel(new BorderLayout(3,3));
     private JButton[][] chessBoardSquares = new JButton[8][8];
+    private JButton New, Resign;
     private JPanel chessBoard;
     private final JLabel message = new JLabel("Welcome to the Wild West Chess!");
 
@@ -29,8 +30,8 @@ public class chessGUI extends JFrame implements EventListener{
         JToolBar tools = new JToolBar();
         tools.setFloatable(false);
         gui.add(tools, BorderLayout.PAGE_START);
-        JButton New = new JButton("New");
-        JButton Resign = new JButton("Resign");
+         New = new JButton("New");
+         Resign = new JButton("Resign");
         tools.add(New);
         tools.addSeparator();
         tools.add(Resign);
@@ -96,15 +97,17 @@ public class chessGUI extends JFrame implements EventListener{
         chessBoardSquares[0][7].setIcon(brook); chessBoardSquares[7][7].setIcon(wrook);
 
     }
-//    public void addMouseListener(){
+    public void addMouseListener(){
 //        for (int row = 0; row< chessBoardSquares.length;row++){
 //            for (int col = 0;col<chessBoardSquares[0].length;col++){
 //                chessBoardSquares[row][col].addMouseListener(this);
 //            }
 //        }
-//    }
-//
-//    public void mouseAction(MouseEvent e){
-//
-//    }
+        New.addMouseListener(this);
+        Resign.addMouseListener(this);
+    }
+
+    public void mouseAction(MouseEvent e){
+        
+    }
 }
