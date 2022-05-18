@@ -7,7 +7,7 @@ import java.awt.image.BufferedImage;
 import java.util.EventListener;
 import java.lang.Object;
 
-public class chessGUI extends JFrame implements MouseListener{
+public class chessGUI extends JFrame implements EventListener{
     private final JPanel gui = new JPanel(new BorderLayout(3,3));
     private JButton[][] chessBoardSquares = new JButton[8][8];
     private JPanel chessBoard;
@@ -37,7 +37,7 @@ public class chessGUI extends JFrame implements MouseListener{
         chessBoard = new JPanel(new GridLayout(8,8));
         chessBoard.setBorder(new LineBorder(Color.BLACK));
         gui.add(chessBoard);
-        ImageIcon blackBishop = new ImageIcon("blackBishop.PNG");
+//        ImageIcon blackBishop = new ImageIcon("blackBishop.PNG");
 
         Insets buttonMargins = new Insets(0,0,0,0);
         for (int row = 0; row < chessBoardSquares.length; row++)
@@ -51,8 +51,11 @@ public class chessGUI extends JFrame implements MouseListener{
             }
             for (int col = 0; col < chessBoardSquares[0].length; col++)
             {
-                chessBoardSquares[row][col] = new JButton(blackBishop);
+                chessBoardSquares[row][col] = new JButton();
                 chessBoardSquares[row][col].setMargin(buttonMargins);
+                ImageIcon icon = new ImageIcon(
+                        new BufferedImage(64, 64, BufferedImage.TYPE_INT_ARGB));
+                chessBoardSquares[row][col].setIcon(icon);
 //                if (black){
 //                    chessBoardSquares[row][col].setBackground(Color.BLACK);
 //                    black = false;
@@ -65,15 +68,15 @@ public class chessGUI extends JFrame implements MouseListener{
             }
         }
     }
-    public void addMouseListener(){
-        for (int row = 0; row< chessBoardSquares.length;row++){
-            for (int col = 0;col<chessBoardSquares[0].length;col++){
-                chessBoardSquares[row][col].addMouseListener(this);
-            }
-        }
-    }
-
-    public void mouseAction(MouseEvent e){
-
-    }
+//    public void addMouseListener(){
+//        for (int row = 0; row< chessBoardSquares.length;row++){
+//            for (int col = 0;col<chessBoardSquares[0].length;col++){
+//                chessBoardSquares[row][col].addMouseListener(this);
+//            }
+//        }
+//    }
+//
+//    public void mouseAction(MouseEvent e){
+//
+//    }
 }
