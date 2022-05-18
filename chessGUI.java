@@ -27,6 +27,7 @@ public class chessGUI extends JFrame implements EventListener{
     public void initializeGUI(){
         gui.setBorder(new EmptyBorder(5,5,5,5));
         JToolBar tools = new JToolBar();
+        tools.setFloatable(false);
         gui.add(tools, BorderLayout.PAGE_START);
         tools.add(new JButton("New"));
         tools.addSeparator();
@@ -37,7 +38,7 @@ public class chessGUI extends JFrame implements EventListener{
         chessBoard = new JPanel(new GridLayout(8,8));
         chessBoard.setBorder(new LineBorder(Color.BLACK));
         gui.add(chessBoard);
-//        ImageIcon blackBishop = new ImageIcon("blackBishop.PNG");
+        ImageIcon icon = new ImageIcon("images/blackBishop.PNG");
 
         Insets buttonMargins = new Insets(0,0,0,0);
         for (int row = 0; row < chessBoardSquares.length; row++)
@@ -51,11 +52,12 @@ public class chessGUI extends JFrame implements EventListener{
             }
             for (int col = 0; col < chessBoardSquares[0].length; col++)
             {
-                chessBoardSquares[row][col] = new JButton();
+                chessBoardSquares[row][col] = new JButton(icon);
                 chessBoardSquares[row][col].setMargin(buttonMargins);
-                ImageIcon icon = new ImageIcon(
-                        new BufferedImage(64, 64, BufferedImage.TYPE_INT_ARGB));
+//                ImageIcon icon = new ImageIcon(
+//                        new BufferedImage(64, 64, BufferedImage.TYPE_INT_ARGB));
                 chessBoardSquares[row][col].setIcon(icon);
+
 //                if (black){
 //                    chessBoardSquares[row][col].setBackground(Color.BLACK);
 //                    black = false;
