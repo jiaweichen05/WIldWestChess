@@ -3,10 +3,11 @@ import javax.swing.*;
 import javax.swing.border.EmptyBorder;
 import javax.swing.border.LineBorder;
 import java.awt.event.*;
+import java.awt.image.BufferedImage;
 import java.util.EventListener;
 import java.lang.Object;
 
-public class chessGUI extends JFrame implements EventListener{
+public class chessGUI extends JFrame implements MouseListener{
     private final JPanel gui = new JPanel(new BorderLayout(3,3));
     private JButton[][] chessBoardSquares = new JButton[8][8];
     private JPanel chessBoard;
@@ -36,6 +37,7 @@ public class chessGUI extends JFrame implements EventListener{
         chessBoard = new JPanel(new GridLayout(8,8));
         chessBoard.setBorder(new LineBorder(Color.BLACK));
         gui.add(chessBoard);
+        ImageIcon blackBishop = new ImageIcon("blackBishop.PNG");
 
         Insets buttonMargins = new Insets(0,0,0,0);
         for (int row = 0; row < chessBoardSquares.length; row++)
@@ -49,20 +51,29 @@ public class chessGUI extends JFrame implements EventListener{
             }
             for (int col = 0; col < chessBoardSquares[0].length; col++)
             {
-                chessBoardSquares[row][col] = new JButton();
+                chessBoardSquares[row][col] = new JButton(blackBishop);
                 chessBoardSquares[row][col].setMargin(buttonMargins);
-                if (black){
-                    chessBoardSquares[row][col].setBackground(Color.BLACK);
-                    black = false;
-                }
-                else{
-                    chessBoardSquares[row][col].setBackground(Color.WHITE);
-                    black = true;
-                }
+//                if (black){
+//                    chessBoardSquares[row][col].setBackground(Color.BLACK);
+//                    black = false;
+//                }
+//                else{
+//                    chessBoardSquares[row][col].setBackground(Color.WHITE);
+//                    black = true;
+//                }
                 chessBoard.add(chessBoardSquares[row][col]);
             }
         }
-        Icon blackBishop = new ImageIcon("blackBishop.PNG");
-        chessBoardSquares[0][0].setIcon(blackBishop);
+    }
+    public void addMouseListener(){
+        for (int row = 0; row< chessBoardSquares.length;row++){
+            for (int col = 0;col<chessBoardSquares[0].length;col++){
+                chessBoardSquares[row][col].addMouseListener(this);
+            }
+        }
+    }
+
+    public void mouseAction(MouseEvent e){
+
     }
 }
