@@ -13,6 +13,7 @@ public class chessGUI extends JFrame implements ActionListener{
     private JButton New, Resign;
     private JPanel chessBoard;
     private final JLabel message = new JLabel("Welcome to the Wild West Chess!");
+    private String[] moveSet;
 
     public chessGUI(){
         setTitle("Wild West Chess");
@@ -22,7 +23,6 @@ public class chessGUI extends JFrame implements ActionListener{
         setSize(1000,1000);
         setLocationRelativeTo(null);
         setVisible(true);
-
     }
 
     public void initializeGUI(){
@@ -100,7 +100,7 @@ public class chessGUI extends JFrame implements ActionListener{
     public void addMouseListener(){
         for (int row = 0; row< chessBoardSquares.length;row++){
             for (int col = 0;col<chessBoardSquares[0].length;col++){
-                chessBoardSquares[row][col].addMouseListener(this);
+                chessBoardSquares[row][col].addActionListener(this);
             }
         }
         New.addActionListener(this);
@@ -121,6 +121,10 @@ public class chessGUI extends JFrame implements ActionListener{
     }
 
     public void actionPerformed(ActionEvent e){
-        String actionCommand = e.getActionCommand();
+        while (moveSet[1] != null)
+        {
+
+        }
+
     }
 }
