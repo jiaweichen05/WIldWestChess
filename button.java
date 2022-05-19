@@ -7,14 +7,14 @@ import java.awt.image.BufferedImage;
 import java.util.EventListener;
 import java.lang.Object;
 
-public class Button {
+public class button {
     private static int row = 0;
     private static int col = 0;
     private int myrow;
     private int mycol;
-    private JButton button;
-    public Button(){
-        button = new JButton();
+    private JButton Button;
+    public button(){
+        Button = new JButton();
         myrow = row;
         mycol = col;
         row++;
@@ -29,4 +29,7 @@ public class Button {
         return mycol;
     }
 
+    public JButton getButton(){
+        return Button;
+    }
 }

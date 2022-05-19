@@ -10,6 +10,7 @@ import java.lang.Object;
 public class chessGUI extends JFrame implements ActionListener{
     private final JPanel gui = new JPanel(new BorderLayout(3,3));
     private JButton[][] chessBoardSquares = new JButton[8][8];
+    private button[][] chessBoardSquares2 = new button[8][8];
     private JButton New, Resign;
     private JPanel chessBoard;
     private final JLabel message = new JLabel("Welcome to the Wild West Chess!");
@@ -68,7 +69,9 @@ public class chessGUI extends JFrame implements ActionListener{
             }
             for (int col = 0; col < chessBoardSquares[0].length; col++)
             {
-                chessBoardSquares[row][col] = new JButton();
+                button temp = new button();
+                chessBoardSquares2[row][col] = temp;
+                chessBoardSquares[row][col] = temp.getButton();
                 chessBoardSquares[row][col].setMargin(buttonMargins);
 
                 if (black){
@@ -122,6 +125,19 @@ public class chessGUI extends JFrame implements ActionListener{
     }
 
     public void actionPerformed(ActionEvent e){
+        int count = 0;
+        //set count to 0 after if moveset is equal to 1
+        if (count == 1){
+            moveSet[0][0] =
+            moveSet[0][1] =
+        }
+        else{
+            moveSet[1][0] =
+            moveSet[1][1] =
+        }
+        if (count == 1){
+            count = 0;
+        }
 
     }
 }
