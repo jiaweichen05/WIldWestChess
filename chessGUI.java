@@ -7,7 +7,7 @@ import java.awt.image.BufferedImage;
 import java.util.EventListener;
 import java.lang.Object;
 
-public class chessGUI extends JFrame implements MouseListener{
+public class chessGUI extends JFrame implements ActionListener{
     private final JPanel gui = new JPanel(new BorderLayout(3,3));
     private JButton[][] chessBoardSquares = new JButton[8][8];
     private JButton New, Resign;
@@ -98,16 +98,16 @@ public class chessGUI extends JFrame implements MouseListener{
 
     }
     public void addMouseListener(){
-//        for (int row = 0; row< chessBoardSquares.length;row++){
-//            for (int col = 0;col<chessBoardSquares[0].length;col++){
-//                chessBoardSquares[row][col].addMouseListener(this);
-//            }
-//        }
-        New.addMouseListener(this);
-        Resign.addMouseListener(this);
+        for (int row = 0; row< chessBoardSquares.length;row++){
+            for (int col = 0;col<chessBoardSquares[0].length;col++){
+                chessBoardSquares[row][col].addActionListener(this);
+            }
+        }
+        New.addActionListener(this);
+        Resign.addActionListener(this);
     }
 
-    public void mouseAction(MouseEvent e){
-        
+    public void action(ActionEvent e){
+
     }
 }
