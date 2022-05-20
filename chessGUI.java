@@ -130,9 +130,20 @@ public class chessGUI extends JFrame implements ActionListener{
         String actionCommand = e.getActionCommand();
         if (actionCommand.equals("New")){
             System.out.println("New");
+            initializeGUI();
         }
         if (actionCommand.equals("Resign")){
-            JDialog temp = new JDialog()
+            JDialog temp = new JDialog();
+            temp.setTitle("Chess Dialog");
+            temp.setSize(500,500);
+            temp.setResizable(false);
+            temp.setLocationRelativeTo(null);
+            JTextPane words = new JTextPane();
+            words.setText("GAME OVER!\nCLICK NEW TO RESTART GAME");
+//            words.setSize(100,100);
+            words.setEditable(false);
+            temp.add(words);
+            temp.show();
         }
         ImageIcon old = new ImageIcon(), movedTo = new ImageIcon();
         JButton button1 = new JButton(), button2 = new JButton();
