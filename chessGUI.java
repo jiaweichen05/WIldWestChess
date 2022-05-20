@@ -134,10 +134,17 @@ public class chessGUI extends JFrame implements ActionListener{
         }
         for (int j = 1; j < 64; j++)
         {
+            int rowVal = j / 8;
+            int colVal = j % 8 - 1;
+
             if (moveSet[0].equals(Integer.toString(j)))
             {
-                old = moveSet[0].getIco
-                continue;
+//                old = moveSet[0].getIco
+//                continue;
+            }
+            if (moveSet[1].equals(Integer.toString(j)))
+            {
+                movedTo =
             }
         }
         //Divide by 8 for row value
