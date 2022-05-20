@@ -136,7 +136,7 @@ public class chessGUI extends JFrame implements ActionListener{
         {
             if (moveSet[0].equals(Integer.toString(j)))
             {
-                old = moveSet[0].getIco
+                old = moveSet[0].getIcon();
                 continue;
             }
         }
