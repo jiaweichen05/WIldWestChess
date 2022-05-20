@@ -28,6 +28,7 @@ public class chessGUI extends JFrame implements ActionListener{
     }
 
     public void initializeGUI(){
+        moveSet = new String[2];
         gui.setBorder(new EmptyBorder(5,5,5,5));
         JToolBar tools = new JToolBar();
         tools.setFloatable(false);
@@ -127,6 +128,7 @@ public class chessGUI extends JFrame implements ActionListener{
     public void actionPerformed(ActionEvent e){
         String actionCommand = e.getActionCommand();
         ImageIcon old = new ImageIcon(), movedTo = new ImageIcon();
+        JButton button1 = new JButton(), button2 = new JButton();
         int count = 0;
         while (count < 2 ){
             moveSet[count] = actionCommand;
@@ -139,18 +141,16 @@ public class chessGUI extends JFrame implements ActionListener{
 
             if (moveSet[0].equals(Integer.toString(j)))
             {
-//                old = moveSet[0].getIco
-//                continue;
+                button1 = chessBoardSquares[rowVal][colVal];
+                old = (ImageIcon) chessBoardSquares[rowVal][colVal].getIcon();
             }
             if (moveSet[1].equals(Integer.toString(j)))
             {
-                movedTo =
+                button2 = chessBoardSquares[rowVal][colVal];
+                movedTo = (ImageIcon) chessBoardSquares[rowVal][colVal].getIcon();
             }
         }
-        //Divide by 8 for row value
-        // Modulo 8 for col value - 1
-
-
-
+            button1.setIcon(null);
+            button2.setIcon(old);
     }
 }
