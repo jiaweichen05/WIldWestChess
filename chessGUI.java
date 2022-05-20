@@ -131,6 +131,20 @@ public class chessGUI extends JFrame implements ActionListener{
         Icon old = new ImageIcon();
         Icon movedTo = new ImageIcon();
         JButton button1 = new JButton(), button2 = new JButton();
+        if (actionCommand.equals("New")){
+            initializeGUI();
+        }
+        if(actionCommand.equals("Resign")){
+            JDialog temp = new JDialog();
+            temp.setTitle("Chess Dialog");
+            temp.setSize(500,500);
+            JTextPane text = new JTextPane();
+            text.setText("GAME OVER!\n CLICK NEW TO PLAY AGAIN");
+            temp.add(text);
+            temp.setLocationRelativeTo(null);
+            temp.setResizable(false);
+            temp.show();
+        }
         while (count < 2 ){
             moveSet[count] = actionCommand;
             count++;
