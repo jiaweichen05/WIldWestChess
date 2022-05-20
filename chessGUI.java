@@ -12,6 +12,7 @@ public class chessGUI extends JFrame implements ActionListener{
     private JButton[][] chessBoardSquares = new JButton[8][8];
     private JButton New, Resign;
     private JPanel chessBoard;
+    private JLabel GameOver;
     private final JLabel message = new JLabel("Welcome to the Wild West Chess!");
     private String[] moveSet;
 
@@ -127,6 +128,12 @@ public class chessGUI extends JFrame implements ActionListener{
 
     public void actionPerformed(ActionEvent e){
         String actionCommand = e.getActionCommand();
+        if (actionCommand.equals("New")){
+            System.out.println("New");
+        }
+        if (actionCommand.equals("Resign")){
+            JDialog temp = new JDialog()
+        }
         ImageIcon old = new ImageIcon(), movedTo = new ImageIcon();
         JButton button1 = new JButton(), button2 = new JButton();
         int count = 0;
