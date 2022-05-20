@@ -135,6 +135,20 @@ public class chessGUI extends JFrame implements ActionListener{
 
     public void actionPerformed(ActionEvent e){
         String actionCommand = e.getActionCommand();
+        if (actionCommand.equals("New")){
+            initializeGUI();
+        }
+        if(actionCommand.equals("Resign")){
+            JDialog temp = new JDialog();
+            temp.setTitle("Chess Dialog");
+            temp.setSize(500,500);
+            JTextPane text = new JTextPane();
+            text.setText("GAME OVER!\n CLICK NEW TO PLAY AGAIN");
+            temp.add(text);
+            temp.setLocationRelativeTo(null);
+            temp.setResizable(false);
+            temp.show();
+        }
         if (count < 2 ){
             moveSet[count] = actionCommand;
             count++;
