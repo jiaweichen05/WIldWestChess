@@ -14,6 +14,7 @@ public class chessGUI extends JFrame implements ActionListener{
     private JPanel chessBoard;
     private final JLabel message = new JLabel("Welcome to the Wild West Chess!");
     private String[] moveSet;
+    private static int count = 0;
 
     public chessGUI(){
         setTitle("Wild West Chess");
@@ -127,12 +128,16 @@ public class chessGUI extends JFrame implements ActionListener{
 
     public void actionPerformed(ActionEvent e){
         String actionCommand = e.getActionCommand();
-        ImageIcon old = new ImageIcon(), movedTo = new ImageIcon();
+        Icon old = new ImageIcon();
+        Icon movedTo = new ImageIcon();
         JButton button1 = new JButton(), button2 = new JButton();
-        int count = 0;
         while (count < 2 ){
             moveSet[count] = actionCommand;
             count++;
+        }
+        if (count == 2)
+        {
+            count = 0;
         }
         for (int j = 1; j < 64; j++)
         {
@@ -142,15 +147,22 @@ public class chessGUI extends JFrame implements ActionListener{
             if (moveSet[0].equals(Integer.toString(j)))
             {
                 button1 = chessBoardSquares[rowVal][colVal];
-                old = (ImageIcon) chessBoardSquares[rowVal][colVal].getIcon();
+                old = chessBoardSquares[rowVal][colVal].getIcon();
+                System.out.print(old);
             }
             if (moveSet[1].equals(Integer.toString(j)))
             {
                 button2 = chessBoardSquares[rowVal][colVal];
-                movedTo = (ImageIcon) chessBoardSquares[rowVal][colVal].getIcon();
+                movedTo = chessBoardSquares[rowVal][colVal].getIcon();
+                System.out.println(movedTo);
             }
         }
+//        ImageIcon wpawn = new ImageIcon("images/whitePawn.PNG");
             button1.setIcon(null);
             button2.setIcon(old);
+
+//            chessBoardSquares[4][4].setIcon(wpawn);
+
+
     }
 }
