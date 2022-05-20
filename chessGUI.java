@@ -136,6 +136,7 @@ public class chessGUI extends JFrame implements ActionListener{
     public void actionPerformed(ActionEvent e){
         String actionCommand = e.getActionCommand();
         if (actionCommand.equals("New")){
+            System.out.println("TEST");
             initializeGUI();
         }
         if(actionCommand.equals("Resign")){
@@ -152,13 +153,6 @@ public class chessGUI extends JFrame implements ActionListener{
         if (count < 2 ){
             moveSet[count] = actionCommand;
             count++;
-        }else{
-            count = 0;
-            moveSet = new String[2];
-            old = new ImageIcon();
-            movedTo = new ImageIcon();
-            firstButton = new JButton();
-            secondButton = new JButton();
         }
 
         if (moveSet[0] != null && moveSet[1] != null)
@@ -183,6 +177,14 @@ public class chessGUI extends JFrame implements ActionListener{
             }
             firstButton.setIcon(null);
             secondButton.setIcon(old);
+
+            count = 0;
+            moveSet = new String[2];
+            old = new ImageIcon();
+            movedTo = new ImageIcon();
+            firstButton = new JButton();
+            secondButton = new JButton();
+
         }
 
 //        ImageIcon wpawn = new ImageIcon("images/whitePawn.PNG");
