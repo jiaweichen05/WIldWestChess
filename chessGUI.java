@@ -8,10 +8,9 @@ import java.util.EventListener;
 import java.lang.Object;
 
 public class chessGUI extends JFrame implements ActionListener{
-    private JPanel gui = new JPanel(new BorderLayout(3,3));
+    private final JPanel gui = new JPanel(new BorderLayout(3,3));
     private JButton[][] chessBoardSquares = new JButton[8][8];
     private JButton New, Resign;
-    private JLabel GameOver;
     private JPanel chessBoard;
     private final JLabel message = new JLabel("Welcome to the Wild West Chess!");
     private String[] moveSet;
@@ -29,13 +28,13 @@ public class chessGUI extends JFrame implements ActionListener{
     }
 
     public void initializeGUI(){
+        moveSet = new String[2];
         gui.setBorder(new EmptyBorder(5,5,5,5));
         JToolBar tools = new JToolBar();
         tools.setFloatable(false);
         gui.add(tools, BorderLayout.PAGE_START);
          New = new JButton("New");
          Resign = new JButton("Resign");
-         moveSet = new String[2];
         tools.add(New);
         tools.addSeparator();
         tools.add(Resign);
@@ -128,17 +127,8 @@ public class chessGUI extends JFrame implements ActionListener{
 
     public void actionPerformed(ActionEvent e){
         String actionCommand = e.getActionCommand();
-        if (actionCommand.equals("New")){
-            initializeGUI();
-        }
-        if (actionCommand.equals("Resign")){
-            System.out.println("TEST");
-            chessBoard = new JPanel();
-            GameOver = new JLabel("GAME OVER!");
-            add(chessBoard);
-            add(GameOver);
-        }
         ImageIcon old = new ImageIcon(), movedTo = new ImageIcon();
+        JButton button1 = new JButton(), button2 = new JButton();
         int count = 0;
         while (count < 2 ){
             moveSet[count] = actionCommand;
@@ -146,16 +136,21 @@ public class chessGUI extends JFrame implements ActionListener{
         }
         for (int j = 1; j < 64; j++)
         {
+            int rowVal = j / 8;
+            int colVal = j % 8 - 1;
+
             if (moveSet[0].equals(Integer.toString(j)))
             {
-//                old = moveSet[0].getIcon();
-                continue;
+                button1 = chessBoardSquares[rowVal][colVal];
+                old = (ImageIcon) chessBoardSquares[rowVal][colVal].getIcon();
+            }
+            if (moveSet[1].equals(Integer.toString(j)))
+            {
+                button2 = chessBoardSquares[rowVal][colVal];
+                movedTo = (ImageIcon) chessBoardSquares[rowVal][colVal].getIcon();
             }
         }
-        //Divide by 8 for row value
-        // Modulo 8 for col value - 1
-
-
-
+            button1.setIcon(null);
+            button2.setIcon(old);
     }
 }
