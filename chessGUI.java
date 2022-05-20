@@ -8,9 +8,10 @@ import java.util.EventListener;
 import java.lang.Object;
 
 public class chessGUI extends JFrame implements ActionListener{
-    private final JPanel gui = new JPanel(new BorderLayout(3,3));
+    private JPanel gui = new JPanel(new BorderLayout(3,3));
     private JButton[][] chessBoardSquares = new JButton[8][8];
     private JButton New, Resign;
+    private JLabel GameOver;
     private JPanel chessBoard;
     private final JLabel message = new JLabel("Welcome to the Wild West Chess!");
     private String[] moveSet;
@@ -34,6 +35,7 @@ public class chessGUI extends JFrame implements ActionListener{
         gui.add(tools, BorderLayout.PAGE_START);
          New = new JButton("New");
          Resign = new JButton("Resign");
+         moveSet = new String[2];
         tools.add(New);
         tools.addSeparator();
         tools.add(Resign);
@@ -126,6 +128,16 @@ public class chessGUI extends JFrame implements ActionListener{
 
     public void actionPerformed(ActionEvent e){
         String actionCommand = e.getActionCommand();
+        if (actionCommand.equals("New")){
+            initializeGUI();
+        }
+        if (actionCommand.equals("Resign")){
+            System.out.println("TEST");
+            chessBoard = new JPanel();
+            GameOver = new JLabel("GAME OVER!");
+            add(chessBoard);
+            add(GameOver);
+        }
         ImageIcon old = new ImageIcon(), movedTo = new ImageIcon();
         int count = 0;
         while (count < 2 ){
@@ -136,7 +148,7 @@ public class chessGUI extends JFrame implements ActionListener{
         {
             if (moveSet[0].equals(Integer.toString(j)))
             {
-                old = moveSet[0].getIcon();
+//                old = moveSet[0].getIcon();
                 continue;
             }
         }
