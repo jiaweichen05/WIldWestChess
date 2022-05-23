@@ -19,6 +19,7 @@ public class chessGUI extends JFrame implements ActionListener {
     private JButton firstButton, secondButton;
     private static JDialog gameRules;
     private static boolean isFirstGame = true;
+//    private Font newFont;
 
 
     public chessGUI() {
@@ -121,12 +122,13 @@ public class chessGUI extends JFrame implements ActionListener {
         chessBoardSquares[0][7].setIcon(brook);
         chessBoardSquares[7][7].setIcon(wrook);
 
-        gameRules = new JDialog(); gameRules.setTitle("Wild West Chess Rules"); gameRules.setSize(500,150);
+        gameRules = new JDialog(); gameRules.setTitle("Wild West Chess Rules"); gameRules.setSize(500,175);
         JTextPane info = new JTextPane(); info.setEditable(false);
         info.setText("In order to move the pieces, please click the piece you want to move and " +
                 "then click on the tile that you want to move to\n\nYou can choose to play traditional " +
                 "chess by following conventional chess rules or you can play \"Wild West Mode\"" +
                 "\n\nThank you for playing Wild West Chess!");
+//        info.setFont(newFont);
         gameRules.add(info); gameRules.setLocationRelativeTo(null);
     }
 
