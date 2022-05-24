@@ -19,8 +19,18 @@ public class chessGUI extends JFrame implements ActionListener {
     private JButton firstButton, secondButton;
     private static JDialog gameRules;
     private static boolean isFirstGame = true;
-//    private Font newFont;
-
+    private final Icon bbish = new ImageIcon("images/blackBishop.PNG");
+    private final Icon brook = new ImageIcon("images/blackRook.PNG");
+    private final Icon bking = new ImageIcon("images/blackKing.PNG");
+    private final Icon bqueen = new ImageIcon("images/blackQueen.PNG");
+    private final Icon bpawn = new ImageIcon("images/blackPawn.PNG");
+    private final Icon bknight = new ImageIcon("images/blackKnight.PNG");
+    private final Icon wbish = new ImageIcon("images/whiteBishop.PNG");
+    private final Icon wrook = new ImageIcon("images/whiteRook.PNG");
+    private final Icon wking = new ImageIcon("images/whiteKing.PNG");
+    private final Icon wqueen = new ImageIcon("images/whiteQueen.PNG");
+    private final Icon wpawn = new ImageIcon("images/whitePawn.PNG");
+    private final Icon wknight = new ImageIcon("images/whiteKnight.PNG");
 
     public chessGUI() {
         count = 0;
@@ -63,18 +73,7 @@ public class chessGUI extends JFrame implements ActionListener {
         chessBoard = new JPanel(new GridLayout(8, 8));
         chessBoard.setBorder(new LineBorder(Color.BLACK));
         gui.add(chessBoard);
-        ImageIcon bbish = new ImageIcon("images/blackBishop.PNG");
-        ImageIcon brook = new ImageIcon("images/blackRook.PNG");
-        ImageIcon bking = new ImageIcon("images/blackKing.PNG");
-        ImageIcon bqueen = new ImageIcon("images/blackQueen.PNG");
-        ImageIcon bpawn = new ImageIcon("images/blackPawn.PNG");
-        ImageIcon bknight = new ImageIcon("images/blackKnight.PNG");
-        ImageIcon wbish = new ImageIcon("images/whiteBishop.PNG");
-        ImageIcon wrook = new ImageIcon("images/whiteRook.PNG");
-        ImageIcon wking = new ImageIcon("images/whiteKing.PNG");
-        ImageIcon wqueen = new ImageIcon("images/whiteQueen.PNG");
-        ImageIcon wpawn = new ImageIcon("images/whitePawn.PNG");
-        ImageIcon wknight = new ImageIcon("images/whiteKnight.PNG");
+
 
 
         Insets buttonMargins = new Insets(0, 0, 0, 0);
