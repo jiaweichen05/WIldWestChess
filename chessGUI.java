@@ -19,6 +19,7 @@ public class chessGUI extends JFrame implements ActionListener {
     private JButton firstButton, secondButton;
     private static JDialog gameRules;
     private static boolean isFirstGame = true;
+    private boolean endGame;
     private final Icon bbish = new ImageIcon("images/blackBishop.PNG");
     private final Icon brook = new ImageIcon("images/blackRook.PNG");
     private final Icon bking = new ImageIcon("images/blackKing.PNG");
@@ -34,6 +35,7 @@ public class chessGUI extends JFrame implements ActionListener {
 
     public chessGUI() {
         count = 0;
+        endGame = false;
         setTitle("Wild West Chess");
         initializeGUI();
         add(gui);
@@ -192,10 +194,18 @@ public class chessGUI extends JFrame implements ActionListener {
                     if (moveSet[1].equals(Integer.toString(j))) {
                         secondButton = chessBoardSquares[rowVal][colVal];
                         movedTo = chessBoardSquares[rowVal][colVal].getIcon();
+                         if (movedTo.equals(bking) || movedTo.equals(wking))
+                         {
+                             endGame = true;
+                         }
                     }
                 }
                 firstButton.setIcon(null);
                 secondButton.setIcon(old);
+                if (endGame)
+                {
+                    System.out.print("End Game");
+                }
 
                 count = 0;
                 moveSet = new String[2];
