@@ -204,7 +204,17 @@ public class chessGUI extends JFrame implements ActionListener {
                 secondButton.setIcon(old);
                 if (endGame)
                 {
-                    System.out.print("End Game");
+                    JDialog temp2 = new JDialog();
+                    temp2.setTitle("Game Over");
+                    temp2.setSize(200,100);
+                    JTextPane words = new JTextPane();
+                    words.setText("GAME OVER! \nPLEASE CLICK NEW TO RESTART GAME");
+                    temp2.setLocationRelativeTo(null);
+                    temp2.setResizable(false);
+                    words.setEditable(false);
+                    temp2.add(words);
+                    temp2.setVisible(true);
+
                 }
 
                 count = 0;
@@ -217,4 +227,5 @@ public class chessGUI extends JFrame implements ActionListener {
             }
         }
     }
+    
 }
