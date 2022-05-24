@@ -194,7 +194,7 @@ public class chessGUI extends JFrame implements ActionListener {
                     if (moveSet[1].equals(Integer.toString(j))) {
                         secondButton = chessBoardSquares[rowVal][colVal];
                         movedTo = chessBoardSquares[rowVal][colVal].getIcon();
-                         if (movedTo.equals(bking) || movedTo.equals(wking))
+                         if (movedTo == (bking) || movedTo == (wking))
                          {
                              endGame = true;
                          }
@@ -214,7 +214,6 @@ public class chessGUI extends JFrame implements ActionListener {
                     words.setEditable(false);
                     temp2.add(words);
                     temp2.setVisible(true);
-
                 }
 
                 count = 0;
