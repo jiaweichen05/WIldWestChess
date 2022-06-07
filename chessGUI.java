@@ -7,7 +7,7 @@ import java.awt.image.BufferedImage;
 import java.util.EventListener;
 import java.lang.Object;
 
-public class chessGUI extends JFrame implements ActionListener, MouseListener, MouseMotionListener {
+public class chessGUI extends JFrame implements ActionListener {
     private final JPanel gui = new JPanel(new BorderLayout(3, 3));
     private JButton[][] chessBoardSquares = new JButton[8][8];
     private JButton New, Resign;
@@ -226,71 +226,5 @@ public class chessGUI extends JFrame implements ActionListener, MouseListener, M
             }
         }
     }
-
-    public void mousePressed(MouseEvent e)
-    {
-        chessPiece = null;
-        Component c =  chessBoard.findComponentAt(e.getX(), e.getY());
-
-        if (c instanceof JPanel)
-            return;
-
-
-        Point parentLocation = c.getParent().getLocation();
-        xAdjustment = parentLocation.x - e.getX();
-        yAdjustment = parentLocation.y - e.getY();
-        chessPiece = (JLabel)c;
-        chessPiece.setLocation(e.getX() + xAdjustment, e.getY() + yAdjustment);
-        chessPiece.setSize(chessPiece.getWidth(), chessPiece.getHeight());
-        layeredPane.add(chessPiece, JLayeredPane.DRAG_LAYER);
-    }
-
-    //Move the chess piece around
-
-    public void mouseDragged(MouseEvent me)
-    {
-        if (chessPiece == null) return;
-        chessPiece.setLocation(me.getX() + xAdjustment, me.getY() + yAdjustment);
-    }
-
-    //Drop the chess piece back onto the chess board
-
-    public void mouseReleased(MouseEvent e)
-    {
-        if(chessPiece == null) return;
-
-        chessPiece.setVisible(false);
-        Component c =  chessBoard.findComponentAt(e.getX(), e.getY());
-
-        if (c instanceof Piece)
-        {
-            // if (c.getColor().equals("b"))
-            Container parent = c.getParent();
-            // Piece now = ((Piece) c);
-            // if (now.getColor().equals("b"))
-            // {
-            parent.remove(0);
-            parent.add( chessPiece );
-            // }
-            // else
-            // {
-            //   return;
-            // }
-        }
-        else
-        {
-            Container parent = (Container)c;
-            parent.add( chessPiece );
-        }
-
-        chessPiece.setVisible(true);
-    }
-
-
-
-    public void mouseClicked(MouseEvent e) {}
-    public void mouseMoved(MouseEvent e) {}
-    public void mouseEntered(MouseEvent e){}
-    public void mouseExited(MouseEvent e) {}
     
 }
