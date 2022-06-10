@@ -202,8 +202,7 @@ public class chessGUI extends JFrame implements ActionListener {
                     if (moveSet[1].equals(Integer.toString(j))) {
                         secondButton = chessBoardSquares[rowVal][colVal];
                         movedTo = chessBoardSquares[rowVal][colVal].getIcon();
-                        System.out.println(movedTo);
-                         if (movedTo == (bking) || movedTo == (wking))
+                         if (movedTo == (bking.getImage()) || movedTo == (wking.getImage()))
                          {
                              endGame = true;
                          }
@@ -229,20 +228,20 @@ public class chessGUI extends JFrame implements ActionListener {
                 if ((firstPiece.isBlack() && !secondPiece.isBlack()) || (!firstPiece.isBlack() && secondPiece.isBlack())) {
                     firstButton.setIcon(null);
                     secondButton.setIcon(old);
-
                 }
-                    if (endGame) {
-                        JDialog temp2 = new JDialog();
-                        temp2.setTitle("Game Over");
-                        temp2.setSize(200, 100);
-                        JTextPane words = new JTextPane();
-                        words.setText("GAME OVER! \nPLEASE CLICK NEW TO RESTART GAME");
-                        temp2.setLocationRelativeTo(null);
-                        temp2.setResizable(false);
-                        words.setEditable(false);
-                        temp2.add(words);
-                        temp2.setVisible(true);
-                    }
+
+                if (endGame) {
+                    JDialog temp2 = new JDialog();
+                    temp2.setTitle("Game Over");
+                    temp2.setSize(200, 100);
+                    JTextPane words = new JTextPane();
+                    words.setText("GAME OVER! \nPLEASE CLICK NEW TO RESTART GAME");
+                    temp2.setLocationRelativeTo(null);
+                    temp2.setResizable(false);
+                    words.setEditable(false);
+                    temp2.add(words);
+                    temp2.setVisible(true);
+                }
 
                 count = 0;
                 moveSet = new String[2];
