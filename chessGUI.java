@@ -4,6 +4,7 @@ import javax.swing.border.EmptyBorder;
 import javax.swing.border.LineBorder;
 import java.awt.event.*;
 import java.awt.image.BufferedImage;
+import java.util.ArrayList;
 import java.util.EventListener;
 import java.lang.Object;
 
@@ -17,6 +18,7 @@ public class chessGUI extends JFrame implements ActionListener {
     private static int count;
     private Icon old, movedTo;
     private JButton firstButton, secondButton;
+    private Piece firstPiece, secondPiece;
     private static JDialog gameRules;
     private static boolean isFirstGame = true;
     private boolean endGame;
@@ -32,6 +34,7 @@ public class chessGUI extends JFrame implements ActionListener {
     private final Piece wqueen = new Piece(new ImageIcon("images/whiteQueen.PNG"), false);
     private final Piece wpawn = new Piece(new ImageIcon("images/whitePawn.PNG"), false);
     private final Piece wknight = new Piece(new ImageIcon("images/whiteKnight.PNG"), false);
+    private ArrayList<Piece> pieceList = new ArrayList<Piece>();
 
     public chessGUI() {
         count = 0;
@@ -52,6 +55,9 @@ public class chessGUI extends JFrame implements ActionListener {
         }else{
             gameRules.setVisible(false);
         }
+        pieceList.add(bbish); pieceList.add(brook); pieceList.add(bking); pieceList.add(bqueen); pieceList.add(bpawn);
+        pieceList.add(bknight); pieceList.add(wbish); pieceList.add(wrook); pieceList.add(wking); pieceList.add(wqueen);
+        pieceList.add(wpawn); pieceList.add(wknight);
     }
 
     public void initializeGUI() {
@@ -187,6 +193,7 @@ public class chessGUI extends JFrame implements ActionListener {
                         rowVal = j / 8;
                         colVal = j % 8 - 1;
                     }
+
                     if (moveSet[0].equals(Integer.toString(j))) {
                         firstButton = chessBoardSquares[rowVal][colVal];
                         old = chessBoardSquares[rowVal][colVal].getIcon();
@@ -199,9 +206,24 @@ public class chessGUI extends JFrame implements ActionListener {
                              endGame = true;
                          }
                     }
+                    for (Piece i : pieceList)
+                    {
+                        if (i.getImage().equals(old))
+                        {
+                            firstPiece = i;
+                        }
+                        if (i.getImage().equals(movedTo))
+                        {
+                            secondPiece = i;
+                        }
+                    }
                 }
-                firstButton.setIcon(null);
-                secondButton.setIcon(old);
+                if ((firstPiece.isBlack() && !secondPiece.isBlack()) || (!firstPiece.isBlack() && secondPiece.isBlack()) )
+                {
+                    firstButton.setIcon(null);
+                    secondButton.setIcon(old);
+                }
+
                 if (endGame)
                 {
                     JDialog temp2 = new JDialog();
