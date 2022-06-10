@@ -61,6 +61,7 @@ public class chessGUI extends JFrame implements ActionListener {
     }
 
     public void initializeGUI() {
+        secondPiece = null;
         moveSet = new String[2];
         old = new ImageIcon();
         movedTo = new ImageIcon();
@@ -201,42 +202,47 @@ public class chessGUI extends JFrame implements ActionListener {
                     if (moveSet[1].equals(Integer.toString(j))) {
                         secondButton = chessBoardSquares[rowVal][colVal];
                         movedTo = chessBoardSquares[rowVal][colVal].getIcon();
+                        System.out.println(movedTo);
                          if (movedTo == (bking) || movedTo == (wking))
                          {
                              endGame = true;
                          }
                     }
-                    for (Piece i : pieceList)
+                }
+                for (Piece i : pieceList)
+                {
+                    if (i.getImage().equals(old))
                     {
-                        if (i.getImage().equals(old))
-                        {
-                            firstPiece = i;
-                        }
-                        if (i.getImage().equals(movedTo))
-                        {
-                            secondPiece = i;
-                        }
+                        firstPiece = i;
+                    }
+                    if (i.getImage().equals(movedTo))
+                    {
+                        secondPiece = i;
                     }
                 }
-                if ((firstPiece.isBlack() && !secondPiece.isBlack()) || (!firstPiece.isBlack() && secondPiece.isBlack()) )
+
+                if (movedTo == null)
                 {
-                    firstButton.setIcon(null);
-                    secondButton.setIcon(old);
+                    secondPiece = new Piece(null, !firstPiece.isBlack());
                 }
 
-                if (endGame)
-                {
-                    JDialog temp2 = new JDialog();
-                    temp2.setTitle("Game Over");
-                    temp2.setSize(200,100);
-                    JTextPane words = new JTextPane();
-                    words.setText("GAME OVER! \nPLEASE CLICK NEW TO RESTART GAME");
-                    temp2.setLocationRelativeTo(null);
-                    temp2.setResizable(false);
-                    words.setEditable(false);
-                    temp2.add(words);
-                    temp2.setVisible(true);
+                if ((firstPiece.isBlack() && !secondPiece.isBlack()) || (!firstPiece.isBlack() && secondPiece.isBlack())) {
+                    firstButton.setIcon(null);
+                    secondButton.setIcon(old);
+
                 }
+                    if (endGame) {
+                        JDialog temp2 = new JDialog();
+                        temp2.setTitle("Game Over");
+                        temp2.setSize(200, 100);
+                        JTextPane words = new JTextPane();
+                        words.setText("GAME OVER! \nPLEASE CLICK NEW TO RESTART GAME");
+                        temp2.setLocationRelativeTo(null);
+                        temp2.setResizable(false);
+                        words.setEditable(false);
+                        temp2.add(words);
+                        temp2.setVisible(true);
+                    }
 
                 count = 0;
                 moveSet = new String[2];
