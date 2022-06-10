@@ -21,17 +21,17 @@ public class chessGUI extends JFrame implements ActionListener {
     private static boolean isFirstGame = true;
     private boolean endGame;
     private final Piece bbish = new Piece(new ImageIcon("images/blackBishop.PNG"), true);
-    private final Piece brook = new Piece("images/blackRook.PNG", true);
-    private final Piece bking = new Piece("images/blackKing.PNG", true);
-    private final Piece bqueen = new Piece("images/blackQueen.PNG", true);
-    private final Piece bpawn = new Piece("images/blackPawn.PNG", true);
-    private final Piece bknight = new Piece("images/blackKnight.PNG", true);
-    private final Piece wbish = new Piece("images/whiteBishop.PNG", true);
-    private final Piece wrook = new Piece("images/whiteRook.PNG", true);
-    private final Piece wking = new Piece("images/whiteKing.PNG", true);
-    private final Piece wqueen = new Piece("images/whiteQueen.PNG", true);
-    private final Piece wpawn = new Piece("images/whitePawn.PNG", true);
-    private final Piece wknight = new Piece("images/whiteKnight.PNG", true);
+    private final Piece brook = new Piece(new ImageIcon("images/blackRook.PNG"), true);
+    private final Piece bking = new Piece(new ImageIcon("images/blackKing.PNG"), true);
+    private final Piece bqueen = new Piece(new ImageIcon("images/blackQueen.PNG"), true);
+    private final Piece bpawn = new Piece(new ImageIcon("images/blackPawn.PNG"), true);
+    private final Piece bknight = new Piece(new ImageIcon("images/blackKnight.PNG"), true);
+    private final Piece wbish = new Piece(new ImageIcon("images/whiteBishop.PNG"), false);
+    private final Piece wrook = new Piece(new ImageIcon("images/whiteRook.PNG"), false);
+    private final Piece wking = new Piece(new ImageIcon("images/whiteKing.PNG"), false);
+    private final Piece wqueen = new Piece(new ImageIcon("images/whiteQueen.PNG"), false);
+    private final Piece wpawn = new Piece(new ImageIcon("images/whitePawn.PNG"), false);
+    private final Piece wknight = new Piece(new ImageIcon("images/whiteKnight.PNG"), false);
 
     public chessGUI() {
         count = 0;
