@@ -19,4 +19,8 @@ public class Piece {
     public boolean isBlack(){
         return black;
     }
+
+    public Icon getImage(){
+        return image;
+    }
 }

@@ -101,27 +101,27 @@ public class chessGUI extends JFrame implements ActionListener {
             }
         }
         for (int i = 0; i < 8; i++) {
-            chessBoardSquares[1][i].setIcon(bpawn);
+            chessBoardSquares[1][i].setIcon(bpawn.getImage());
         }
         for (int i = 0; i < 8; i++) {
-            chessBoardSquares[6][i].setIcon((wpawn));
+            chessBoardSquares[6][i].setIcon((wpawn.getImage()));
         }
-        chessBoardSquares[0][0].setIcon(brook);
-        chessBoardSquares[7][0].setIcon(wrook);
-        chessBoardSquares[0][1].setIcon(bknight);
-        chessBoardSquares[7][1].setIcon(wknight);
-        chessBoardSquares[0][2].setIcon(bbish);
-        chessBoardSquares[7][2].setIcon(wbish);
-        chessBoardSquares[0][3].setIcon(bqueen);
-        chessBoardSquares[7][3].setIcon(wqueen);
-        chessBoardSquares[0][4].setIcon(bking);
-        chessBoardSquares[7][4].setIcon(wking);
-        chessBoardSquares[0][5].setIcon(bbish);
-        chessBoardSquares[7][5].setIcon(wbish);
-        chessBoardSquares[0][6].setIcon(bknight);
-        chessBoardSquares[7][6].setIcon(wknight);
-        chessBoardSquares[0][7].setIcon(brook);
-        chessBoardSquares[7][7].setIcon(wrook);
+        chessBoardSquares[0][0].setIcon(brook.getImage());
+        chessBoardSquares[7][0].setIcon(wrook.getImage());
+        chessBoardSquares[0][1].setIcon(bknight.getImage());
+        chessBoardSquares[7][1].setIcon(wknight.getImage());
+        chessBoardSquares[0][2].setIcon(bbish.getImage());
+        chessBoardSquares[7][2].setIcon(wbish.getImage());
+        chessBoardSquares[0][3].setIcon(bqueen.getImage());
+        chessBoardSquares[7][3].setIcon(wqueen.getImage());
+        chessBoardSquares[0][4].setIcon(bking.getImage());
+        chessBoardSquares[7][4].setIcon(wking.getImage());
+        chessBoardSquares[0][5].setIcon(bbish.getImage());
+        chessBoardSquares[7][5].setIcon(wbish.getImage());
+        chessBoardSquares[0][6].setIcon(bknight.getImage());
+        chessBoardSquares[7][6].setIcon(wknight.getImage());
+        chessBoardSquares[0][7].setIcon(brook.getImage());
+        chessBoardSquares[7][7].setIcon(wrook.getImage());
 
         gameRules = new JDialog(); gameRules.setTitle("Wild West Chess Rules"); gameRules.setSize(500,175);
         JTextPane info = new JTextPane(); info.setEditable(false);
