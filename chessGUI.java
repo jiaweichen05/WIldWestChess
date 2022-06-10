@@ -202,10 +202,6 @@ public class chessGUI extends JFrame implements ActionListener {
                     if (moveSet[1].equals(Integer.toString(j))) {
                         secondButton = chessBoardSquares[rowVal][colVal];
                         movedTo = chessBoardSquares[rowVal][colVal].getIcon();
-                         if (movedTo == (bking.getImage()) || movedTo == (wking.getImage()))
-                         {
-                             endGame = true;
-                         }
                     }
                 }
                 for (Piece i : pieceList)
@@ -228,6 +224,10 @@ public class chessGUI extends JFrame implements ActionListener {
                 if ((firstPiece.isBlack() && !secondPiece.isBlack()) || (!firstPiece.isBlack() && secondPiece.isBlack())) {
                     firstButton.setIcon(null);
                     secondButton.setIcon(old);
+                    if (movedTo == (bking.getImage()) || movedTo == (wking.getImage()))
+                    {
+                        endGame = true;
+                    }
                 }
 
                 if (endGame) {
