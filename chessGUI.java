@@ -20,18 +20,18 @@ public class chessGUI extends JFrame implements ActionListener {
     private static JDialog gameRules;
     private static boolean isFirstGame = true;
     private boolean endGame;
-    private final Icon bbish = new ImageIcon("images/blackBishop.PNG");
-    private final Icon brook = new ImageIcon("images/blackRook.PNG");
-    private final Icon bking = new ImageIcon("images/blackKing.PNG");
-    private final Icon bqueen = new ImageIcon("images/blackQueen.PNG");
-    private final Icon bpawn = new ImageIcon("images/blackPawn.PNG");
-    private final Icon bknight = new ImageIcon("images/blackKnight.PNG");
-    private final Icon wbish = new ImageIcon("images/whiteBishop.PNG");
-    private final Icon wrook = new ImageIcon("images/whiteRook.PNG");
-    private final Icon wking = new ImageIcon("images/whiteKing.PNG");
-    private final Icon wqueen = new ImageIcon("images/whiteQueen.PNG");
-    private final Icon wpawn = new ImageIcon("images/whitePawn.PNG");
-    private final Icon wknight = new ImageIcon("images/whiteKnight.PNG");
+    private final Piece bbish = new Piece(new ImageIcon("images/blackBishop.PNG"), true);
+    private final Piece brook = new Piece("images/blackRook.PNG", true);
+    private final Piece bking = new Piece("images/blackKing.PNG", true);
+    private final Piece bqueen = new Piece("images/blackQueen.PNG", true);
+    private final Piece bpawn = new Piece("images/blackPawn.PNG", true);
+    private final Piece bknight = new Piece("images/blackKnight.PNG", true);
+    private final Piece wbish = new Piece("images/whiteBishop.PNG", true);
+    private final Piece wrook = new Piece("images/whiteRook.PNG", true);
+    private final Piece wking = new Piece("images/whiteKing.PNG", true);
+    private final Piece wqueen = new Piece("images/whiteQueen.PNG", true);
+    private final Piece wpawn = new Piece("images/whitePawn.PNG", true);
+    private final Piece wknight = new Piece("images/whiteKnight.PNG", true);
 
     public chessGUI() {
         count = 0;
